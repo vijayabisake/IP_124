@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Shopping Cart</title>
+   
+    <link href="style.css" rel="stylesheet">
+
+<table class="top-bar" width="100%">
+    <tr>
+        <td width="20%" style="padding-left:10px;">
+            <img src="logo.jfif" height="100" width="100" style="border-radius:10px;">
+        </td>
+        <td width="60%" align="center">
+            <h1>🛍️ Mega Store</h1>
+            <p style="color:#666; font-weight:600;">Drag & Drop Shopping</p>
+        </td>
+        <td width="20%" align="right" style="padding-right:15px;">
+            <span class="cart-badge">🛒 <span id="cartCount">0</span> items</span>
+        </td>
+    </tr>
+</table>
+
+<!-- IMAGE MAP -->
+<table width="100%" style="background:#f0f0f0; padding:10px 0;" class="map-container">
+    <tr>
+        <td align="center">
+            <img src="all.png" height="160" width="550" usemap="#shopmap" style="border-radius:10px;">
+            <map name="shopmap">
+                <area shape="rect" coords="0,0,200,160" alt="Headphones" href="#sec1">
+                <area shape="rect" coords="200,0,400,160" alt="Mobiles" href="#sec2">
+                <area shape="rect" coords="400,0,550,160" alt="Jerseys" href="#sec3">
+            </map>
+        </td>
+    </tr>
+</table>
+<hr>
+
+<!--SECTION 1: HEADPHONES -->
+<a name="sec1"></a>
+<table class="bg-headphone" width="100%">
+    <tr>
+        <td colspan="3" align="center" style="padding:12px 0 4px;">
+            <h2 class="section-title headphone">🎧 Wireless Headphones</h2>
+        </td>
+    </tr>
+    <tr>
+        <td width="33%" align="center" class="product-box">
+            <img id="h1" src="air 4.jfif" height="120" width="120" draggable="true" ondragstart="begin_drag(event)">
+            <br><b>AirPods Max</b>
+            <br><span class="price">5,499rs</span>
+            <br><video controls>
+                <source src="mobile.mp4" type="video/mp4">
+            </video>
+        </td>
+        <td width="33%" align="center" class="product-box">
+            <img id="h2" src="bose.jfif" height="120" width="120" draggable="true" ondragstart="begin_drag(event)">
+            <br><b>Bose QC Ultra</b>
+            <br><span class="price">6,570rs</span>
+            <br><video controls>
+                <source src="mobile.mp4" type="video/mp4">
+            </video>
+        </td>
+        <td width="33%" align="center" class="product-box">
+            <img id="h3" src="sony.jfif" height="120" width="120" draggable="true" ondragstart="begin_drag(event)">
+            <br><b>Sony XM6</b>
+            <br><span class="price">3,349rs</span>
+            <br><video controls>
+                <source src="mobile.mp4" type="video/mp4">
+            </video>
+        </td>
+    </tr>
+</table>
+<hr style="border-top-color:#cc3300;">
+
+<!--SECTION 2: MOBILES-->
+<a name="sec2"></a>
+<table class="bg-mobile" width="100%">
+    <tr>
+        <td colspan="3" align="center" style="padding:12px 0 4px;">
+            <h2 class="section-title mobile">📱 Latest Smartphones</h2>
+        </td>
+    </tr>
+    <tr>
+        <td width="33%" align="center" class="product-box">
+            <img id="m1" src="iPhone 17 pro.jfif" height="130" width="130" draggable="true" ondragstart="begin_drag(event)">
+            <br><b>iPhone 17 Pro Max</b>
+            <br><span class="price">₹1,19,999</span>
+            <br><video controls>
+                <source src="earphone_vid.mp4" type="video/mp4">
+            </video>
+        </td>
+        <td width="33%" align="center" class="product-box">
+            <img id="m2" src="pixel.jfif" height="130" width="130" draggable="true" ondragstart="begin_drag(event)">
+            <br><b>Google Pixel 10</b>
+            <br><span class="price">89,999rs</span>
+            <br><video controls>
+                <source src="earphone_vid.mp4" type="video/mp4">
+            </video>
+        </td>
+        <td width="33%" align="center" class="product-box">
+            <img id="m3" src="Sam.jfif" height="130" width="130" draggable="true" ondragstart="begin_drag(event)">
+            <br><b>Samsung S26 Ultra</b>
+            <br><span class="price">₹1,10,999</span>
+            <br><video controls>
+                <source src="earphone_vid.mp4" type="video/mp4">
+            </video>
+        </td>
+    </tr>
+</table>
+<hr style="border-top-color:#009933;">
+
+<!-- ===== SECTION 3: JERSEYS ===== -->
+<a name="sec3"></a>
+<table class="bg-jersey" width="100%">
+    <tr>
+        <td colspan="3" align="center" style="padding:12px 0 4px;">
+            <h2 class="section-title jersey">⚽ Football Jerseys</h2>
+        </td>
+    </tr>
+    <tr>
+        <td width="33%" align="center" class="product-box">
+            <img id="j1" src="portugal.jfif" height="130" width="130" draggable="true" ondragstart="begin_drag(event)">
+            <br><b>Portugal</b>
+            <br><span class="price">999rs</span>
+            <br><video controls>
+                <source src="jersey.mp4" type="video/mp4">
+            </video>
+        </td>
+        <td width="33%" align="center" class="product-box">
+            <img id="j2" src="brazil.jfif" height="130" width="130" draggable="true" ondragstart="begin_drag(event)">
+            <br><b>Brazil</b>
+            <br><span class="price">1,200rs</span>
+            <br><video controls>
+                <source src="jersey.mp4" type="video/mp4">
+            </video>
+        </td>
+        <td width="33%" align="center" class="product-box">
+            <img id="j3" src="france.jfif" height="130" width="130" draggable="true" ondragstart="begin_drag(event)">
+            <br><b>France</b>
+            <br><span class="price">750rs</span>
+            <br><video controls>
+                <source src="jersey.mp4" type="video/mp4">
+            </video>
+        </td>
+    </tr>
+</table>
+<hr style="border-top-color:#660099;">
+
+<!-- ===== CART + PAYMENT ===== -->
+<table width="100%" style="background:#fafafa; padding:10px 0;">
+    <tr>
+        <!-- PAYMENT FORM -->
+        <td width="55%" valign="top" style="padding:0 10px;">
+            <table class="payment-box" width="100%">
+                <tr>
+                    <td colspan="2" align="center">
+                        <h2 style="color:#ff6600; margin:6px 0;">💳 Payment</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="35%"><b>Name:</b></td>
+                    <td><input type="text" placeholder="Your name"></td>
+                </tr>
+                <tr>
+                    <td><b>Email:</b></td>
+                    <td><input type="text" placeholder="your@email.com"></td>
+                </tr>
+                <tr>
+                    <td><b>Phone:</b></td>
+                    <td><input type="text" placeholder="98765 43210"></td>
+                </tr>
+                <tr>
+                    <td><b>Pay with:</b></td>
+                    <td>
+                        <select>
+                            <option>UPI</option>
+                            <option>Net Banking</option>
+                            <option>Card</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr> 
+  <td colspan="2" style="padding:15px 0 5px; text-align: center;"> 
+    <button class="btn-order" 
+            style="background-color: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer;"
+            onmouseover="this.style.backgroundColor='#0056b3'" 
+            onmouseout="this.style.backgroundColor='#007bff'"
+            onclick="placeOrder()">
+      PLACE ORDER
+    </button> 
+  </td> 
+</tr>
+
+            </table>
+        </td>
+
+        <!-- DROP ZONE -->
+        <td width="45%" valign="top" style="padding:0 10px;">
+            <div id="dropZone" class="drop-zone" ondrop="end_drop(event)" ondragover="during_dragdrop(event)">
+                <div class="drop-hint">▼ Drop items here</div>
+            </div>
+            <p style="text-align:center; font-weight:bold; color:#0066cc; margin:6px 0;">Shopping Cart</p>
+        </td>
+    </tr>
+</table>
+<hr>
+
+<!-- ===== LOCATION BUTTON ===== -->
+<center style="padding:12px 0;">
+    <button class="btn-location" onclick="findStore()">📍 Find Our Store</button>
+</center>
+
+<!-- ===== FOOTER ===== -->
+<div class="footer">
+    <span>© 2026 Mega Store</span> — All Rights Reserved
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+    // Cart counter
+    let cartCount = 0;
+    const cartDisplay = document.getElementById('cartCount');
+
+    function updateCart() {
+        const dropZone = document.getElementById('dropZone');
+        const items = dropZone.querySelectorAll('img');
+        cartCount = items.length;
+        cartDisplay.textContent = cartCount;
+    }
+
+    // 1. ondragover - allows drop
+    function during_dragdrop(e) {
+        e.preventDefault();
+        document.getElementById('dropZone').classList.add('drag-over');
+    }
+
+    // 2. ondragstart - store data
+    function begin_drag(e) {
+        e.dataTransfer.setData("text/plain", e.target.id);
+    }
+
+    // 3. ondrop - copy image to cart
+    function end_drop(e) {
+        e.preventDefault();
+        const dropZone = document.getElementById('dropZone');
+        dropZone.classList.remove('drag-over');
+        
+        let code = e.dataTransfer.getData("text/plain");
+        let original = document.getElementById(code);
+        
+        if (original) {
+            // Remove hint text if present
+            let hint = dropZone.querySelector('.drop-hint');
+            if (hint) hint.remove();
+
+            // Create a copy
+            let copy = original.cloneNode(true);
+            copy.draggable = false;
+            copy.style.width = "60px";
+            copy.style.height = "60px";
+            copy.style.objectFit = "contain";
+            copy.style.border = "2px solid #0066cc";
+            copy.style.borderRadius = "8px";
+            copy.style.background = "white";
+            copy.style.padding = "3px";
+            
+            dropZone.appendChild(copy);
+            updateCart();
+        }
+    }
+
+    // Remove drag-over class on leave
+    document.addEventListener('DOMContentLoaded', function() {
+        const dz = document.getElementById('dropZone');
+        dz.addEventListener('dragleave', function() {
+            this.classList.remove('drag-over');
+        });
+    });
+
+    // Place order
+    function placeOrder() {
+        const dropZone = document.getElementById('dropZone');
+        const items = dropZone.querySelectorAll('img');
+        if (items.length === 0) {
+            alert('Your cart is empty! Drag some items first.');
+        } else {
+            alert('✅ Order Placed! Thank you for shopping.');
+        }
+    }
+
+    // Geolocation
+    function findStore() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showStore, locationError);
+        } else {
+            alert("Geolocation not supported.");
+        }
+    }
+
+    function showStore(pos) {
+        let lat = pos.coords.latitude;
+        let lon = pos.coords.longitude;
+        window.open("https://www.google.com/maps?q=" + lat + "," + lon, "_blank");
+    }
+
+    function locationError() {
+        alert("Cannot find location.");
+    }
+
+    // Initialize cart count on load
+    window.onload = function() {
+        updateCart();
+    };
+</script>
+
+</body>
+</html>
