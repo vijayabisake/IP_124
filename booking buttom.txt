@@ -1,0 +1,5 @@
+<h2>Book Your Ticket</h2>
+
+<button onclick="alert('🎉 Booked Successfully! Enjoy your visit.')">
+    Book Ticket
+</button>
