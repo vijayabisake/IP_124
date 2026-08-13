@@ -1,0 +1,307 @@
+<DOCTYPE!html>
+<head>
+
+<style>
+#div1 {
+float: center;
+width: 1550px;
+height:300px;
+padding: 10px;
+border: 1px solid black;
+}.cart {
+    border: 2px dashed black;
+    width: 300px;
+    height: 100px;
+    text-align: center;}.heading {
+    background-color: gold;
+    text-align: center;
+    padding: 10px;
+
+</style>
+<script>
+
+// 1. MUST be bound to the dropzone's 'ondragover' event
+function during_dragdrop(e){
+    e.preventDefault(); // Allows dropping
+}
+
+// 2. MUST be bound to the source item's 'ondragstart' event
+function begin_drag(e){
+    // Use standard plain text format for maximum reliability
+    e.dataTransfer.setData("text/plain", e.target.id);
+}
+
+// 3. MUST be bound to the dropzone's 'ondrop' event
+function end_drop(e){
+    e.preventDefault();
+    
+    // Retrieve the ID string
+    var code = e.dataTransfer.getData("text/plain");
+    var original = document.getElementById(code);
+    
+    // Safety check: ensure the element exists before cloning
+    if (original) {
+        var copy = original.cloneNode(true);
+        copy.id = "copy_" + new Date().getTime();
+        copy.draggable = true;
+        
+        // OPTIONAL: Attach dragstart to the clone so it can be moved too
+        copy.addEventListener('dragstart', begin_drag);
+        
+        e.target.appendChild(copy);
+    }
+}
+
+
+</script>
+
+<title>GRAB YOURS HERE</title>
+
+<div align = center>
+<img src = "logo.jfif" height="200" weight="350">
+</div>
+
+<div align = center>
+<h1 style = "color:red"><b>SHOPPING</b></h1>
+<hr>
+
+<img src = "all.png" height ="200" width = "700" alt = "Product" usemap = "#product"><br>
+
+<map name="product">
+    <area shape="rect" coords="0,0,280,344" alt="Headphones" href="#headphone">
+    <area shape="rect" coords="281,0,560,344" alt="Mobiles" href="#mobile">
+    <area shape="rect" coords="561,0,841,344" alt="Jerseys" href="#jersey">
+</map>
+<hr>
+</div>
+
+<table border=1>
+
+<section id="Headphone">
+<div class = "heading" >
+<h3 align=center><b>HEADPHONES<b></h3><br>
+</div>
+<tr>
+
+<td width = "10%" align=center><img id="ap_img" 
+     src="air 4.jfif" 
+     alt="Dinosaur" 
+     width="200"
+     height="200"
+     ondragstart="begin_drag(event)">
+<h4>Apple AirPods Max (USB-C)</h4><br>
+<video width="250" height="150" controls>
+    <!-- CHANGED: File extension updated from .mp3 to .mp4 -->
+    <source src="mobile.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<td width = "10%" align=center>
+<img id="bose" 
+     src="bose.jfif" 
+     alt="Dinosaur" 
+     width="200"
+     height="200"
+     ondragstart="begin_drag(event)"><br>
+<h4>Bose QuietComfort Ultra (2nd Gen)</h4><br>
+<video width="250" height="150" controls>
+    <!-- CHANGED: File extension updated from .mp3 to .mp4 -->
+    <source src="mobile.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<td width = "10%" align=center>
+<img id="sony" 
+     src="sony.jfif" 
+     alt="sony" 
+     width="200"
+     height="200"
+     ondragstart="begin_drag(event)"><br>
+<h4>Sony WH-1000XM6</h4><br>
+<video width="250" height="150" controls>
+    <!-- CHANGED: File extension updated from .mp3 to .mp4 -->
+    <source src="mobile.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+
+</td>
+
+</tr>
+
+</section>
+
+</table>
+<hr>
+
+<table border=1>
+<section id="mobile">
+<br>
+<div class = "heading" >
+<h3 align=center><b>MOBILE PHONES<b></h3><br>
+</div>
+<hr>
+<tr>
+<td width = "10%" align=center><img id = "drag3" src = "iPhone 17 pro.jfif" height ="200" width = "200" draggable="true" ondragstart = "begin_drag(event)" ><br>
+<h4>Apple iPhone 17 Pro Max</h4><br>
+<video width="300" height="150" controls>
+    <!-- CHANGED: File extension updated from .mp3 to .mp4 -->
+    <source src="earphone_vid.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+</td>
+
+<td width = "10%" align=center><img id = "drag4" src = "pixel.jfif" height ="200" width = "200" draggable="true" ondragstart = "begin_drag(event)" ><br>
+<h4>Google Pixel 10 Pro XL</h4><br>
+<video width="250" height="150" controls>
+    <!-- CHANGED: File extension updated from .mp3 to .mp4 -->
+    <source src="earphone_vid.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+</td>
+
+<td width = "10%" align=center><img id = "drag5" src = "Sam.jfif" height ="200" width = "200" draggable="true" ondragstart = "begin_drag(event)" ><br>
+<h4>Samsung Galaxy S26 Ultra</h4><br>
+<video width="250" height="150" controls>
+    <!-- CHANGED: File extension updated from .mp3 to .mp4 -->
+    <source src="earphone_vid.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+</td>
+
+</tr>
+</table>
+<hr>
+</section>
+<table border=1>
+<section id="jersey">
+
+<div class = "heading" >
+<h3 align=center><b>JERSEY<b></h3><br>
+</div>
+<tr>
+
+<td width = "10%" align=center><img id="portugal" 
+     src="portugal.jfif" 
+     alt="Dinosaur"
+     width="200" 
+     height="200"
+     ondragstart="begin_drag(event)"><br>
+<h4>Portugal Jersey</h4><br>
+<video width="250" height="150" controls>
+    <!-- CHANGED: File extension updated from .mp3 to .mp4 -->
+    <source src="jersey.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+</td>
+
+<td width = "10%" align=center><img id="brazil" 
+     src="brazil.jfif" 
+     alt="Dinosaur"
+     width="200" 
+     height="200"
+     ondragstart="begin_drag(event)"><br>
+<h4>Brazil Jersey</h4><br>
+<video width="250" height="150" controls>
+    <!-- CHANGED: File extension updated from .mp3 to .mp4 -->
+    <source src="jersey.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+</td>
+
+<td width = "10%" align=center><img id="france" 
+     src="france.jfif" 
+     alt="Dinosaur"
+     width="200" 
+     height="200"
+     ondragstart="begin_drag(event)">
+<h4>France Jersey</h4><br>
+<video width="250" height="150" controls>
+    <!-- CHANGED: File extension updated from .mp3 to .mp4 -->
+    <source src="jersey.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+</td>
+</tr>
+</table>
+<hr>
+</section>
+<HR>
+<BR>
+<h3 align=center><b>ADD TO CART<b></h3><br>
+
+<table class="cart" width="100%">
+  <tr>
+    <td width="10%">
+      <!-- The drop target with your exact event attributes -->
+      <div id="div1" ondrop="end_drop(event)" ondragover="during_dragdrop(event)">
+        
+      </div>
+    </td>
+  </tr>
+</table>
+<br>
+<hr>
+<br>
+<h2 align = center>PAYMENT DETAILS</h2>
+<br>
+<div align = "center">
+<tr><li><b>Name : </b><input type = "text" , size = "20" value = ""></li></tr><br>
+<tr><b><li>E-mail : </b><input type = "text" , size = "20" value = ""></li></tr><br>
+<tr><b><li>Ph No : </b><input type = "text" , size = "20" value = ""></li></tr><br>
+<tr><b><li>Total : $2500</li></br></tr>
+<tr>
+<b><li>Select Payment Mode : </b>
+      <select name = "Mymenu">
+            <option value ="UPI">UPI</option>
+            <option value ="Net Banking">Net Banking</option>
+      </select>
+<br>
+<br>
+<Button>PLACE ORDER</button>
+</tr>
+</div>
+<hr>
+<script>
+var x = document.getElementById("demo");
+function getLocation() {
+      if(navigator.geolocation)
+       navigator.geolocation.getCurrentPosition(showPosition);
+}else{
+x.innerHTML = "Geolocation is not supported by this browser:";
+
+}
+function showPosition(position){
+x.innerHTML = "Latitude:" + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+<hr>
+<div align = "center" ><button onclick="getLocation()">Show Shop Location</button></div>
+
+<script>
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        alert("Geolocation is not supported.");
+    }
+}
+
+function showPosition(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+
+    // Open Google Maps
+    window.open("https://www.google.com/maps?q=" + lat + "," + lon, "_blank");
+}
+
+function showError() {
+    alert("Unable to retrieve your location.");
+}
+</script>
+
+</html>
+
+
+
+<head>
