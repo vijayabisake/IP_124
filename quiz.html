@@ -1,0 +1,135 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Online Examination</title> 
+</head> 
+<body 
+<h2>Online Examination</h2> 
+<form action="ex5servlet" method="post"> 
+    <p><b>1. Which language is used to create dynamic web applications on the server side?</b></p> 
+    <input type="radio" name="q1" value="Java"> Java<br> 
+    <input type="radio" name="q1" value="HTML"> HTML<br> 
+    <input type="radio" name="q1" value="CSS"> CSS<br> 
+    <input type="radio" name="q1" value="XML"> XML<br> 
+    <p><b>2. Which keyword is used to inherit a class in Java?</b></p> 
+    <input type="radio" name="q2" value="this"> this<br> 
+    <input type="radio" name="q2" value="extends"> extends<br> 
+    <input type="radio" name="q2" value="implements"> implements<br> 
+    <input type="radio" name="q2" value="super"> super<br> 
+    <p><b>3. What is the default port number of HTTP?</b></p> 
+    <input type="text" name="q3"> 
+    <p><b>4. Which language is primarily used to style HTML web pages?</b></p> 
+    <input type="text" name="q4"> 
+    <br><br> 
+    <input type="submit" value="Submit Exam"> 
+</form> 
+</body> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+import java.io.IOException; 
+import java.io.PrintWriter; 
+import javax.servlet.ServletException; 
+import javax.servlet.annotation.WebServlet; 
+import javax.servlet.http.HttpServlet; 
+import javax.servlet.http.HttpServletRequest; 
+import javax.servlet.http.HttpServletResponse; 
+ 
+@WebServlet("/QuizServlet") 
+public class ex5servlet extends HttpServlet { 
+ 
+    protected void processRequest(HttpServletRequest request, 
+            HttpServletResponse response) 
+            throws ServletException, IOException { 
+ 
+        response.setContentType("text/html;charset=UTF-8"); 
+ 
+        try (PrintWriter out = response.getWriter()) { 
+ 
+            
+            String q1 = request.getParameter("q1"); 
+            String q2 = request.getParameter("q2"); 
+            String q3 = request.getParameter("q3"); 
+            String q4 = request.getParameter("q4"); 
+ 
+            int score = 0; 
+ 
+             
+            if ("Java".equals(q1)) { 
+                score++; 
+            } 
+ 
+            
+            if ("extends".equals(q2)) { 
+                score++; 
+            } 
+ 
+            
+            if ("80".equals(q3)) { 
+                score++; 
+            } 
+ 
+            
+            if ("CSS".equalsIgnoreCase(q4)) { 
+                score++; 
+            } 
+ 
+            
+            out.println("<!DOCTYPE html>"); 
+            out.println("<html>"); 
+            out.println("<head>"); 
+            out.println("<title>Online Examination Result</title>"); 
+            out.println("</head>"); 
+ 
+            out.println("<body>"); 
+ 
+            out.println("<h2>Online Examination Result</h2>"); 
+ 
+            out.println("<h3>Score: " + score + "/4</h3>"); 
+ 
+ 
+ if (score == 4) { 
+                out.println("<p>Excellent! All answers are correct.</p>"); 
+            }  
+            else if (score >= 2) { 
+                out.println("<p>Good! Keep practicing.</p>"); 
+            }  
+            else { 
+                out.println("<p>Keep studying and try again.</p>"); 
+            } 
+ 
+            out.println("<br>"); 
+            out.println("<a href='index.html'>Take Exam Again</a>"); 
+ 
+            out.println("</body>"); 
+            out.println("</html>"); 
+        } 
+    } 
+ 
+    @Override 
+    protected void doGet(HttpServletRequest request, 
+            HttpServletResponse response) 
+            throws ServletException, IOException { 
+ 
+        processRequest(request, response); 
+    } 
+ 
+    @Override 
+    protected void doPost(HttpServletRequest request, 
+            HttpServletResponse response) 
+            throws ServletException, IOException { 
+ 
+        processRequest(request, response); 
+    } 
+ 
+    @Override 
+    public String getServletInfo() { 
+        return "Online Examination Servlet"; 
+    } 
+}Bottom of Form 
+ 
+

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Portal Form</title>
+
+    <style>
+        body{
+            font-family: Arial;
+            background-color: grey;
+        }
+
+        .form{
+            width:550px;
+            background:white;
+            margin:auto;
+            margin-top:30px;
+            padding:20px;
+            border-radius:5px;
+        }
+
+        h2{
+            text-align:center;
+        }
+
+        label{
+            font-weight:bold;
+        }
+
+        input,select{
+            width:100%;
+            padding:8px;
+            margin-top:5px;
+            margin-bottom:10px;
+        }
+
+        .gender{
+            width:auto;
+        }
+
+        
+        input[type="file"] {
+            padding: 5px 0px;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            background:blue;
+            color:white;
+            border:none;
+        }
+
+        button:hover{
+            background:Orange;
+        }
+
+        #msg{
+            color:red;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="form">
+
+<h2>Job Portal Registration</h2>
+
+
+<form onsubmit="return validateForm()" enctype="multipart/form-data">
+
+<label>Full Name *</label>
+<input type="text" id="name">
+
+<label>Email *</label>
+<input type="text" id="email">
+
+<label>Phone Number *</label>
+<input type="text" id="phone">
+
+<label>Password *</label>
+<input type="password" id="password">
+
+<label>Confirm Password *</label>
+<input type="password" id="confirm">
+
+<label>Gender *</label><br>
+
+<input type="radio" name="gender" class="gender" value="Male"> Male
+<input type="radio" name="gender" class="gender" value="Female"> Female
+<input type="radio" name="gender" class="gender" value="Other"> Other
+
+<br><br>
+
+<label>Qualification</label>
+<select id="qualification">
+    <option value="">Select</option>
+    <option>B.E</option>
+    <option>B.Tech</option>
+    <option>B.Sc</option>
+    <option>MCA</option>
+    <option>MBA</option>
+</select>
+
+<label>Experience (Years)</label>
+<input type="number" id="experience">
+
+
+<label>Upload Resume (PDF or Doc) *</label>
+<input type="file" id="resume">
+
+<p id="msg"></p>
+
+<button type="submit">Register</button>
+
+</form>
+
+</div>
+
+<script>
+
+function validateForm()
+{
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+    var password = document.getElementById("password").value;
+    var confirm = document.getElementById("confirm").value;
+    
+   
+    var resume = document.getElementById("resume").value;
+
+    var gender = document.getElementsByName("gender");
+
+    var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    var phonePattern = /^[0-9]{10}$/;
+
+    
+    var passwordPattern = /^(?=.*[A-Z])(?=.*[0-9]).+$/;
+
+    if(name=="")
+    {
+        document.getElementById("msg").innerHTML="Enter your name";
+        return false;
+    }
+
+    if(email=="")
+    {
+        document.getElementById("msg").innerHTML="Enter your email";
+        return false;
+    }
+
+    if(!email.match(emailPattern))
+    {
+        document.getElementById("msg").innerHTML="Invalid email format";
+        return false;
+    }
+
+    if(phone=="")
+    {
+        document.getElementById("msg").innerHTML="Enter your phone number";
+        return false;
+    }
+
+    if(!phone.match(phonePattern))
+    {
+        document.getElementById("msg").innerHTML="Phone number must contain 10 digits";
+        return false;
+    }
+
+    if(password=="")
+    {
+        document.getElementById("msg").innerHTML="Enter password";
+        return false;
+    }
+
+    if(!passwordPattern.test(password))
+    {
+        document.getElementById("msg").innerHTML="Password must contain at least one capital letter and one number";
+        return false;
+    }
+
+    if(confirm=="")
+    {
+        document.getElementById("msg").innerHTML="Confirm your password";
+        return false;
+    }
+
+    if(password!=confirm)
+    {
+        document.getElementById("msg").innerHTML="Passwords do not match";
+        return false;
+    }
+
+    var selected = false;
+
+    for(var i=0; i<gender.length; i++)
+    {
+        if(gender[i].checked)
+        {
+            selected = true;
+        }
+    }
+
+    if(selected==false)
+    {
+        document.getElementById("msg").innerHTML="Select your gender";
+        return false;
+    }
+
+    
+    if(resume=="")
+    {
+        document.getElementById("msg").innerHTML="Please upload your resume";
+        return false;
+    }
+
+    document.getElementById("msg").innerHTML="";
+    alert("Registration Successful!");
+    return true;
+}
+
+</script>
+
+</body>
+</html>
